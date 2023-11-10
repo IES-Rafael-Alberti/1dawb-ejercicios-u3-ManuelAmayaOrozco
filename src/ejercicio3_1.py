@@ -4,6 +4,7 @@ Escribir un programa que almacene las asignaturas de un curso (por ejemplo Matem
 Física, Química, Historia y Lengua) en una lista y la muestre por pantalla.
 """
 
+
 def asigListMaker():
     """Lets you write a list of subjects until the user types in a "0", then returns the newly made list
     
@@ -32,6 +33,7 @@ def enterAsig():
     asig : str
         Subject you want to add to your list.
     """
+    
     asig = input("Escribe una clase para añadir a la lista: ")
     return asig
 
@@ -49,6 +51,7 @@ def readListAsig(asig_list: list):
     res : str
         The resulting string to be read out.
     """
+    
     res = ""
     for asig in asig_list:
         res += asig + ", "
