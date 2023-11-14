@@ -29,7 +29,7 @@ def asigListMakerScore():
     asig = ""
     pos = 0
     asig = input("Escribe una clase para añadir a la lista. (Escribe 0 para dejar de añadir clases): ")
-    note = input("Escribe la nota que has sacado en la clase introducida: ")
+    note = float(input("Escribe la nota que has sacado en la clase introducida: "))
     while(asig != "0"):
         asig_list.append(asig)
         note_list.append(note)
@@ -45,12 +45,12 @@ def enterScore():
     
     Returns
     -------
-    note : str
+    note : float
         Score you want to add to your list.
     """
     
     
-    note = input("Escribe la nota que has sacado en la clase introducida: ")
+    note = float(input("Escribe la nota que has sacado en la clase introducida: "))
     return note
 
 
@@ -74,8 +74,16 @@ def subjNotePrinter(asig_list: list, note_list: list):
     
     count = 0
     while (count < (len(asig_list)-1)):
+        if (float(note_list[count]) == int(note_list[count])):
+            note_list[count] = int(note_list[count])
+        else:
+            note_list[count] = round(note_list[count], 2)
         print("En {asig_listc} has sacado {note_listc}.".format(asig_listc = asig_list[count], note_listc = note_list[count]))
         count += 1
+    if (float(note_list[count]) == int(note_list[count])):
+        note_list[count] = int(note_list[count])
+    else:
+        note_list[count] = round(note_list[count], 2)
     return "En {asig_listc} has sacado {note_listc}.".format(asig_listc = asig_list[count], note_listc = note_list[count])
 
 
