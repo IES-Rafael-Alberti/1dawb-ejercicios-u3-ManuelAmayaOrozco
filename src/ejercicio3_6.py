@@ -6,6 +6,7 @@ cada asignatura y elimine de la lista las asignaturas aprobadas. Al final el pro
 mostrar por pantalla las asignaturas que el usuario tiene que repetir.
 """
 
+
 from src.ejercicio3_1 import enterAsig
 from src.ejercicio3_3 import asigListMakerScore, enterScore
 
@@ -52,7 +53,7 @@ def failedAsigPrinter(asig_list: list, note_list: list):
 
 
 def main():
-    asiglist, notelist = asigListMakerScore()
+    (asiglist, notelist) = asigListMakerScore()
     print(failedAsigPrinter(asiglist, notelist))
     
     
