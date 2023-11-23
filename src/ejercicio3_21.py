@@ -25,17 +25,10 @@ def dicEspanglish():
 def tradFrase(dic: dict):
     sent = ""
     frase = input("Dime una frase que quieras traducir: ")
-    frase = frase.lower()
     frase = frase.split(" ")
     for word in frase:
-        for pal, trad in dic.items():
-            if(word == pal):
-                frase[word] = trad
-        if (sent == ""):
-            sent = frase[word]
-        else:
-            sent = sent + frase[word]
-    return sent
+        sent += dic.get(word, word) + " "
+    return sent[:-1]
 
 
 def main():
