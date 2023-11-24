@@ -251,7 +251,7 @@ def jugar():
 
         imprimir_tablero_oculto(tablero, celdas_reveladas, celdas_marcadas)
 
-        pedir_accion()
+        accion = pedir_accion()
 
         if accion == REVELAR:
             celda_con_mina = not revelar_celda(tablero, celdas_reveladas, celdas_marcadas, fila, columna)
