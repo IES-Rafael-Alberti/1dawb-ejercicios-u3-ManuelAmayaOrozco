@@ -1,6 +1,12 @@
 """
 Ejercicio 3.2.10
-Escribir un programa que permita gestionar la base de datos de clientes de una empresa. Los clientes se guardarán en un diccionario en el que la clave de cada cliente será su NIF, y el valor será otro diccionario con los datos del cliente (nombre, dirección, teléfono, correo, preferente), donde preferente tendrá el valor True si se trata de un cliente preferente. El programa debe preguntar al usuario por una opción del siguiente menú: (1) Añadir cliente, (2) Eliminar cliente, (3) Mostrar cliente, (4) Listar todos los clientes, (5) Listar clientes preferentes, (6) Terminar. En función de la opción elegida el programa tendrá que hacer lo siguiente:
+Escribir un programa que permita gestionar la base de datos de clientes de una empresa. Los clientes
+se guardarán en un diccionario en el que la clave de cada cliente será su NIF, y el valor será otro
+diccionario con los datos del cliente (nombre, dirección, teléfono, correo, preferente), donde preferente 
+tendrá el valor True si se trata de un cliente preferente. El programa debe preguntar al usuario por una
+opción del siguiente menú: (1) Añadir cliente, (2) Eliminar cliente, (3) Mostrar cliente, (4) Listar todos
+los clientes, (5) Listar clientes preferentes, (6) Terminar. En función de la opción elegida el programa 
+tendrá que hacer lo siguiente:
 
 Preguntar los datos del cliente, crear un diccionario con los datos y añadirlo a la base de datos.
 Preguntar por el NIF del cliente y eliminar sus datos de la base de datos.
@@ -29,11 +35,11 @@ def agregar_cliente(base_datos):
     preferente = input("¿Es cliente preferente? (Sí/No): ").lower() == 'sí'
 
     #TODO: Crear un diccionario cliente con toda la información...
-    ???
+    cliente = {"NIF":nif, "Nombre":nombre, "Dirección":direccion, "Teléfono":telefono, "Correo":correo, "Preferente":preferente}
 
     #TODO: Añadir el diccionario cliente que previamente has creado al 
     # diccionario principal que hemos llamado base_datos...
-    ???
+    base_datos[nif] = cliente
 
     print(f"Cliente {nombre} añadido correctamente.")
 
@@ -43,7 +49,11 @@ def eliminar_cliente(base_datos):
     #TODO: eliminar el cliente con nif que se ha introducido
     #Si existe mostrar por consola "Cliente con NIF XXXXXXXXX eliminado correctamente."
     #Sino mostrar "No se encontró un cliente con NIF XXXXXXXXX en la base de datos."
-    ???
+    if (nif not in base_datos):
+        print("No se encontró un cliente con NIF {nif} en la base de datos.".format(nif = nif))
+    else:
+        del base_datos[nif]
+        print("Cliente con NIF {nif} eliminado correctamente.".format(nif = nif))
 
 
 def mostrar_cliente(base_datos):
@@ -53,7 +63,12 @@ def mostrar_cliente(base_datos):
         print("\nDatos del cliente:")
         #TODO: Mostrar todos los datos del cliente
         #en cada línea de consola mostrar el par clave: valor de sus datos...
-        ???
+        print ("NIF: {nif}".format(nif = base_datos[nif]["NIF"]))
+        print ("Nombre: {nombre}".format(nombre = base_datos[nif]["Nombre"]))
+        print ("Dirección: {direccion}".format(direccion = base_datos[nif]["Dirección"]))
+        print ("Teléfono: {telefono}".format(telefono = base_datos[nif]["Teléfono"]))
+        print ("Correo: {correo}".format(correo = base_datos[nif]["Correo"]))
+        print ("Preferente: {preferente}".format(preferente = base_datos[nif]["Preferente"]))
     else:
         print(f"No se encontró un cliente con NIF {nif} en la base de datos.")
 
